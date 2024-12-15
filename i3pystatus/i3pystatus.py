@@ -32,73 +32,15 @@ status.register("weekcal",
 # (the default value for format is used)
 
 
-
-status.register("cpu_usage_graph",
-    format="{cpu_graph}",
-    cpu="usage_cpu7",
-    start_color = farbeGut,
-    end_color = farbeSchlecht,
-    graph_width = 1,
-    graph_style = "blocks",
-    )
-status.register("cpu_usage_graph",
-    format="{cpu_graph}",
-    cpu="usage_cpu6",
-    start_color = farbeGut,
-    end_color = farbeSchlecht,
-    graph_width = 1,
-    graph_style = "blocks",
-    )
-status.register("cpu_usage_graph",
-    format="{cpu_graph}",
-    cpu="usage_cpu5",
-    start_color = farbeGut,
-    end_color = farbeSchlecht,
-    graph_width = 1,
-    graph_style = "blocks",
-    )
-status.register("cpu_usage_graph",
-    format="{cpu_graph}",
-    cpu="usage_cpu4",
-    start_color = farbeGut,
-    end_color = farbeSchlecht,
-    graph_width = 1,
-    graph_style = "blocks",
-    )
-status.register("cpu_usage_graph",
-    format="{cpu_graph}",
-    cpu="usage_cpu3",
-    start_color = farbeGut,
-    end_color = farbeSchlecht,
-    graph_width = 1,
-    graph_style = "blocks",
-    )
-status.register("cpu_usage_graph",
-    format="{cpu_graph}",
-    cpu="usage_cpu2",
-    start_color = farbeGut,
-    end_color = farbeSchlecht,
-    graph_width = 1,
-    graph_style = "blocks",
-    )
-status.register("cpu_usage_graph",
-    format="{cpu_graph}",
-    cpu="usage_cpu1",
-    start_color = farbeGut,
-    end_color = farbeSchlecht,
-    graph_width = 1,
-    graph_style = "blocks",
-    )
-
-status.register("cpu_usage_graph",
-    format="{cpu_graph}",
-    cpu="usage_cpu0",
-    start_color = farbeGut,
-    end_color = farbeSchlecht,
-    graph_width = 1,
-    graph_style = "blocks",
-    )
-
+for i in range(15):
+    status.register("cpu_usage_graph",
+        format="{cpu_graph}",
+        cpu="usage_cpu"+str(i),
+        start_color = farbeGut,
+        end_color = farbeSchlecht,
+        graph_width = 1,
+        graph_style = "blocks",
+        )
 
 
 
@@ -120,15 +62,15 @@ status.register("temp",
 # goes below 5 percent while discharging. The block will also color RED.
 # If you don't have a desktop notification demon yet, take a look at dunst:
 #   http://www.knopwob.org/dunst/
-status.register("battery",
-    format="{status}/{consumption:.2f}W {bar_design} {remaining:%E%hh:%Mm}",
-    #alert=True,
-    alert_percentage=15,
-    status={
-        "DIS": "↓",
-        "CHR": "",
-        "FULL": "",
-    },)
+# status.register("battery",
+#     format="{status}/{consumption:.2f}W {bar_design} {remaining:%E%hh:%Mm}",
+#     #alert=True,
+#     alert_percentage=15,
+#     status={
+#         "DIS": "↓",
+#         "CHR": "",
+#         "FULL": "",
+#     },)
 
 status.register("ping",
        format = "online",
@@ -143,13 +85,13 @@ status.register("ping",
 #
 # Note: the network module requires PyPI package netifaces
 status.register("network",
-    interface="enp0s31f6",
+    interface="enp6s0",
     format_up="E:{v4cidr}",
     format_down="E:down",)
 
 # Note: requires both netifaces and basiciw (for essid and quality)
 status.register("network",
-    interface="wlp4s0",
+    interface="wlp5s0",
     format_up=" {essid} {v4}",
     format_down=" :down",)
 
@@ -170,13 +112,13 @@ status.register("pulseaudio",
 # Shows mpd status
 # Format:
 # Cloud connected▶Reroute to Remain
-status.register("now_playing",
-    format="{title} ({artist}) {status}",
-    status={
-        "pause": "▷",
-        "play": "▶",
-        "stop": "◾",
-    },
-    hide_no_player=False,)
+# status.register("now_playing",
+#     format="{title} ({artist}) {status}",
+#     status={
+#         "pause": "▷",
+#         "play": "▶",
+#         "stop": "◾",
+#     },
+#     hide_no_player=False,)
 
 status.run()
